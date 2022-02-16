@@ -4,10 +4,16 @@ class CandidatesController < ApplicationController
     @candidates = Candidate.all
   end
 
+  def show
+    @candidate = Candidate.find_by(id: params[:id])
+  end
+
   def new
     @candidate = Candidate.new
 
   end
+
+
 
   def create
 
