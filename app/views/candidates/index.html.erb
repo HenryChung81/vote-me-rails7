@@ -19,7 +19,10 @@
           <%= candidate.party %>
         </td>
         <td>
-          <%= candidate.politics %>
+          <%= candidate.age %>
+        </td>
+        <td>
+          <%= link_to 'update', edit_candidate_path(candidate.id) %>
         </td>
       </tr>
 
