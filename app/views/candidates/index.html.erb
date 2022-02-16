@@ -1,4 +1,29 @@
 <%= flash[:notice] %>
   <h1>index</h1>
 
-  <a href="/candidates/new">Add Candidate</a>
+  <%= link_to 'Add Candidate' , new_candidate_path %>
+
+    <table>
+      <tr>
+        <td>Name</td>
+        <td>party</td>
+        <td>Age</td>
+        <td>Action</td>
+
+        <% @candidates.each do |candidate| %>
+      <tr>
+        <td>
+          <%= link_to candidate.name, candidate_path(candidate.id) %>
+        </td>
+        <td>
+          <%= candidate.party %>
+        </td>
+        <td>
+          <%= candidate.politics %>
+        </td>
+      </tr>
+
+      <% end %>
+
+        </tr>
+    </table>
