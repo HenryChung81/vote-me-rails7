@@ -1,0 +1,12 @@
+.field_with_errors {
+  display: inline-block;
+}
+
+.field_with_errors input[type="text"] {
+  border-color: red;
+  border-width: 1px;
+}
+
+.field_with_errors label {
+ color: red;
+}

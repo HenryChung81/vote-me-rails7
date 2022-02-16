@@ -23,7 +23,7 @@ class CandidatesController < ApplicationController
       flash[:notice] = "Candidate created!"
       redirect_to '/candidates'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
