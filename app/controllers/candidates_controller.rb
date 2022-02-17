@@ -42,7 +42,7 @@ class CandidatesController < ApplicationController
   end
 
   def destroy
-    @candidate = Candidate.find_by(Id: params[:id])
+    @candidate = Candidate.find_by(id: params[:id])
 
     @candidate.destroy
         flash[:notice] = "Candidate deleted!"
@@ -51,10 +51,10 @@ class CandidatesController < ApplicationController
   end
 
   def vote
-    @candidate = Candidate.find_by(Id: params[:id])
-    # @candidate.votes = @candidate.votes + 1
-    @candidate.increment(:votes)
-    @candidate.save
+    @candidate = Candidate.find_by(id: params[:id])
+
+    # VoteLog.create(candidate: @candidate, ip_address: request.remote_ip)
+    @candidate.vote_logs.create(ip_address: request.remote_ip)
 
     flash[:notice] = "voted!"
     redirect_to '/candidates'
