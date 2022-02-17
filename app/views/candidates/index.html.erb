@@ -23,6 +23,7 @@
         </td>
         <td>
           <%= link_to 'update', edit_candidate_path(candidate.id) %>
+          <%= link_to 'delete', candidate_path(candidate.id), data: { turbo_method: 'delete',turbo_confirm: "Are you sure?" } %>
         </td>
       </tr>
 
