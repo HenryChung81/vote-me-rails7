@@ -5,6 +5,7 @@
 
     <table>
       <tr>
+        <td>Votes</td>
         <td>Name</td>
         <td>party</td>
         <td>Age</td>
@@ -12,6 +13,15 @@
 
         <% @candidates.each do |candidate| %>
       <tr>
+        <td>
+          <%= candidate.votes %>
+        </td>
+        <td>
+          <form action="candidates/<%= candidate.id %>/vote" method="post">
+            <button type="submit">vote</button>
+          </form>
+          <!-- <%= link_to 'vote' , vote_candidate_path(candidate.id), method: :post %> -->
+        </td>
         <td>
           <%= link_to candidate.name, candidate_path(candidate.id) %>
         </td>
@@ -22,8 +32,9 @@
           <%= candidate.age %>
         </td>
         <td>
-          <%= link_to 'update', edit_candidate_path(candidate.id) %>
-          <%= link_to 'delete', candidate_path(candidate.id), data: { turbo_method: 'delete',turbo_confirm: "Are you sure?" } %>
+          <%= link_to 'update' , edit_candidate_path(candidate.id) %>
+            <%= link_to 'delete' , candidate_path(candidate.id), data: { turbo_method:
+              :delete,turbo_confirm: "Are you sure?" } %>
         </td>
       </tr>
 

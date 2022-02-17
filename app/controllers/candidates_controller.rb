@@ -50,6 +50,16 @@ class CandidatesController < ApplicationController
 
   end
 
+  def vote
+    @candidate = Candidate.find_by(Id: params[:id])
+    # @candidate.votes = @candidate.votes + 1
+    @candidate.increment(:votes)
+    @candidate.save
+
+    flash[:notice] = "voted!"
+    redirect_to '/candidates'
+  end
+
   private
   def candidate_params
       params.require(:candidate).permit(:name, :party, :age, :politics)
