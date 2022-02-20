@@ -14,7 +14,7 @@
         <% @candidates.each do |candidate| %>
       <tr>
         <td>
-          <%= candidate.vote_logs.count %>
+          <%= candidate.vote_logs.size %>
         </td>
         <td>
           <form action="candidates/<%= candidate.id %>/vote" method="post">
